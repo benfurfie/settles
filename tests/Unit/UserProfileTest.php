@@ -47,3 +47,35 @@ test('a user has a gender', function () {
         'gender' => $gender,
     ]);
 });
+
+test('a user has a full address', function () {
+    $user = User::factory()->create();
+    $address_name_number = 'Door 368';
+    $address_street_1 = 'Nelson Mandela House';
+    $address_street_2 = 'Dockside Estate, Peckham';
+    $address_city = 'London';
+    $address_county = 'Greater London';
+    $address_country = 'United Kingdom';
+    $address_postcode = 'W5 1RH';
+
+    UserProfile::factory([
+        'user_id' => $user->id,
+        'address_name_number' => $address_name_number,
+        'address_street_1' => $address_street_1,
+        'address_street_2' => $address_street_2,
+        'address_city' => $address_city,
+        'address_county' => $address_county,
+        'address_country' => $address_country,
+        'address_postcode' => $address_postcode,
+    ])->create();
+
+    $this->assertDatabaseHas('user_profiles', [
+        'address_name_number' => $address_name_number,
+        'address_street_1' => $address_street_1,
+        'address_street_2' => $address_street_2,
+        'address_city' => $address_city,
+        'address_county' => $address_county,
+        'address_country' => $address_country,
+        'address_postcode' => $address_postcode,
+    ]);
+});

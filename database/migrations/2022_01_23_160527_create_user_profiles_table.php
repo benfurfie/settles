@@ -19,13 +19,13 @@ class CreateUserProfilesTable extends Migration
             $table->date('date_of_birth')->nullable();
             $table->string('phone_number')->nullable();
             $table->string('gender')->nullable();
-            // $table->string('address_number_name')->nullable();
-            // $table->string('address_street_1')->nullable();
-            // $table->string('address_street_2')->nullable();
-            // $table->string('address_city')->nullable();
-            // $table->string('address_county')->nullable();
-            // $table->string('address_country')->nullable();
-            // $table->string('address_postcode')->nullable();
+            $table->string('address_name_number')->nullable();
+            $table->string('address_street_1')->nullable();
+            $table->string('address_street_2')->nullable();
+            $table->string('address_city')->nullable();
+            $table->string('address_county')->nullable();
+            $table->string('address_country')->nullable();
+            $table->string('address_postcode')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
