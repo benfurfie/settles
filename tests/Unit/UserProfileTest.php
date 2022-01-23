@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
 
-test('a user has a date of birth', function () {
+test('a user must have a date of birth', function () {
     $user = User::factory()->create();
     $dob = '1985-03-12';
 
