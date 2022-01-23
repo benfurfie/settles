@@ -18,7 +18,7 @@ class CreateUserProfilesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->date('date_of_birth')->nullable();
             $table->string('phone_number')->nullable();
-            // $table->string('gender')->nullable();
+            $table->string('gender')->nullable();
             // $table->string('address_number_name')->nullable();
             // $table->string('address_street_1')->nullable();
             // $table->string('address_street_2')->nullable();

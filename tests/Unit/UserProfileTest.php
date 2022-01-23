@@ -33,3 +33,17 @@ test('a user has phone number', function () {
         'phone_number' => $phone_number,
     ]);
 });
+
+test('a user has a gender', function () {
+    $user = User::factory()->create();
+    $gender = 'male';
+
+    UserProfile::factory([
+        'user_id' => $user->id,
+        'gender' => $gender,
+    ])->create();
+
+    $this->assertDatabaseHas('user_profiles', [
+        'gender' => $gender,
+    ]);
+});
