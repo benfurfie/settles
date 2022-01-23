@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class UserProfile extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'date_of_birth',
+        'phone_number',
+    ];
 }
