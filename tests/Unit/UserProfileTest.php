@@ -20,6 +20,20 @@ test('a user has a date of birth', function () {
     ]);
 });
 
+test('a user has a profile image', function () {
+    $user = User::factory()->create();
+    $profile_image = 'https://pbs.twimg.com/profile_images/1196645005378478080/79mVokZP_400x400.jpg';
+
+    UserProfile::factory([
+        'user_id' => $user->id,
+        'image' => $profile_image,
+    ])->create();
+
+    $this->assertDatabaseHas('user_profiles', [
+        'image' => $profile_image,
+    ]);
+});
+
 test('a user has phone number', function () {
     $user = User::factory()->create();
     $phone_number = '07555 555 555';
