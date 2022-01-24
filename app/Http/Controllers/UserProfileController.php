@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class UserProfileController extends Controller
 {
@@ -14,7 +16,10 @@ class UserProfileController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+
+        return Inertia::render('Profile/Index', [
+        ]);
     }
 
     /**
@@ -24,62 +29,50 @@ class UserProfileController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\UserProfile  $userProfile
      * @return \Illuminate\Http\Response
      */
     public function show(UserProfile $userProfile)
     {
-        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\UserProfile  $userProfile
      * @return \Illuminate\Http\Response
      */
     public function edit(UserProfile $userProfile)
     {
-        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\UserProfile  $userProfile
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, UserProfile $userProfile)
     {
-        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\UserProfile  $userProfile
      * @return \Illuminate\Http\Response
      */
     public function destroy(UserProfile $userProfile)
     {
-        //
     }
 }
