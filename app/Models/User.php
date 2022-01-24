@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -43,6 +44,26 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * The attributes that are appended to the model.
+     *
+     * @var array<int, string>
+     */
+    protected $appends = [
+        'full_name',
+        'driver_since',
+    ];
+
+    public function getDriverSinceAttribute()
+    {
+        return (new Carbon($this->created_at))->format('d/m/Y');
+    }
+
+    public function getFullNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
 
     public function profile()
     {
